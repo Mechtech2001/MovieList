@@ -39,6 +39,15 @@ namespace MovieList
 
             app.UseAuthorization();
 
+            app.MapAreaControllerRoute(
+              name: "admin",
+              areaName: "Admin",
+              pattern: "Admin/{controller=Home}/{action=Index}/{id?}");
+
+            app.MapControllerRoute(
+             name: "Static",
+             pattern: "{controller=Home}/{action}/Page/{num}");
+
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}/{slug?}");

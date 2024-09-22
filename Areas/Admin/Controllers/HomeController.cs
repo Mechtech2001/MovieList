@@ -3,8 +3,10 @@ using MovieList.Models;
 using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 
-namespace MovieList.Controllers
+
+namespace MovieList.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class HomeController : Controller
     {
         private MovieContext context { get; set; }
@@ -27,11 +29,6 @@ namespace MovieList.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
-        public IActionResult StaticContent(string num)
-        {
-            return Content($"Page number: {num}");
         }
     }
 }
